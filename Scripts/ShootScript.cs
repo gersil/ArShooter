@@ -7,6 +7,7 @@ public class ShootScript : MonoBehaviour
 
     public GameObject arCamera;
     public GameObject smoke;
+    public AudioSource shotSound;
 
     // Start is called before the first frame update
     public void Shoot()
@@ -15,14 +16,24 @@ public class ShootScript : MonoBehaviour
 
         if(Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit))
         {
-            if(hit.transform.name == "RubberDuck_Pond_MOBILE(Clone)" || hit.transform.name == "RubberDuck_White_MOBILE(Clone)" || hit.transform.name == "RubberDuck_Yellow_MOBILE(Clone)")
+            if(hit.transform.tag == "GoodDuck" || hit.transform.tag == "BadDuck")
             {
                 Destroy(hit.transform.gameObject);
 
                 Instantiate(smoke, hit.point, Quaternion.LookRotation(hit.normal));
-
+                if (hit.transform.tag == "GoodDuck")
+                {
+                    ScoreScript.scoreVal += 1;
+                }
+                else if (hit.transform.tag == "BadDuck")
+                {
+                    ScoreScript.scoreVal -= 1;
+                }
             }
         }
     }
-
+    public void playSoundEffect()
+    {
+        shotSound.Play();
+    }
 }

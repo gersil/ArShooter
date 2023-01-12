@@ -4,10 +4,48 @@ using UnityEngine;
 
 public class DuckScript : MonoBehaviour
 {
-    
+    private float factor;
+    private Vector3 direction;
+    private float startTime;
+
+    private void Start()
+    {
+        startTime = Time.time;
+
+    }
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * 0.2f);
+        if (name.Contains("Yellow"))
+        {
+            factor = 0.2f;
+            direction = new Vector3(0, 0, 1);
+        } else if (name.Contains("White"))
+        {
+            factor = 0.5f;
+            direction = new Vector3(0, 1, 1);
+
+        }
+        else if (name.Contains("Pond"))
+        {
+            factor = 1f;
+            direction = new Vector3(1, 1, 1);
+
+        }
+        else if (name.Contains("Red"))
+        {
+            factor = 0.8f;
+            direction = new Vector3(-1, 0, 1);
+
+        }
+
+        transform.Translate(direction * Time.deltaTime * factor);
+
+        float timeElapsed = Time.time - startTime;
+        if (timeElapsed >= 8)
+        {
+            Destroy(transform.gameObject);
+        }
+
     }
 }

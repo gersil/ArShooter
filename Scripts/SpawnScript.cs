@@ -6,8 +6,7 @@ public class SpawnScript : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public GameObject[] ducks;
-
-
+    private Vector3 PlayerPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +17,12 @@ public class SpawnScript : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < ducks.Length; i++)
         {
-            Instantiate(ducks[i], spawnPoints[i].position, spawnPoints[i].rotation);
-        }
+            PlayerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
+            Instantiate(ducks[i], new Vector3(PlayerPos.x + Random.Range(-10,15), PlayerPos.y + Random.Range(0,20), PlayerPos.z + Random.Range(-10,15)), spawnPoints[i].rotation);
+        }
         StartCoroutine(StartSpawning());
     }
   
