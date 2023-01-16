@@ -7,6 +7,7 @@ public class DuckScript : MonoBehaviour
     private float factor;
     private Vector3 direction;
     private float startTime;
+    public GameObject particle;
 
     private void Start()
     {
@@ -44,7 +45,11 @@ public class DuckScript : MonoBehaviour
         float timeElapsed = Time.time - startTime;
         if (timeElapsed >= 8)
         {
+
             Destroy(transform.gameObject);
+
+            Instantiate(particle, transform.gameObject.transform.position, transform.gameObject.transform.rotation);
+
         }
 
     }

@@ -21,7 +21,7 @@ public class SpawnScript : MonoBehaviour
         {
             PlayerPos = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
 
-            Instantiate(ducks[i], new Vector3(PlayerPos.x + Random.Range(-10,15), PlayerPos.y + Random.Range(0,20), PlayerPos.z + Random.Range(-10,15)), spawnPoints[i].rotation);
+            Instantiate(ducks[i], new Vector3(PlayerPos.x + Random.Range(-10,15), PlayerPos.y + Random.Range(-10,15), PlayerPos.z + Random.Range(-10,15)), spawnPoints[i].rotation);
         }
         StartCoroutine(StartSpawning());
     }

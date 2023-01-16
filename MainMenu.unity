@@ -215,7 +215,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 342186768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac842e0fd0e99e478c076d9a0298dc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c2cfd2c2a1f02942a6bc8d2d46853a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &342186770
@@ -490,13 +490,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: c871639940235bb49bc9040461fa3689, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 342186769}
+        m_TargetAssemblyTypeName: StartGameController, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
