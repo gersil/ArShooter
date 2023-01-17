@@ -33,14 +33,21 @@ public class DuckScript : MonoBehaviour
             direction = new Vector3(1, 1, 1);
 
         }
-        else if (name.Contains("Red"))
+        else if (name.Contains("Spikeball"))
         {
             factor = 0.8f;
-            direction = new Vector3(-1, 0, 1);
+            direction = new Vector3(-10, 0, 1);
 
         }
-
-        transform.Translate(direction * Time.deltaTime * factor);
+        
+        if (name.Contains("Spikeball"))
+        {
+            transform.Rotate(direction * Time.deltaTime * factor);
+        }
+        else
+        {
+            transform.Translate(direction * Time.deltaTime * factor);
+        }
 
         float timeElapsed = Time.time - startTime;
         if (timeElapsed >= 8)
